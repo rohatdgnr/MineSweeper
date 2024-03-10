@@ -1,22 +1,39 @@
-Mayın Tarlası Oyunu
 
-Bu Java programı, klasik bir Mayın Tarlası oyununu uygular. Oyun, bir oyun tahtası üzerinde rastgele yerleştirilmiş mayınlar bulunan ve oyuncunun mayınsız alanları açmaya çalıştığı bir mantık oyunudur.
+
+
+MineSweeper
+
+
 
 
 
 Nasıl Oynanır
-Oyun başladığında, oyun tahtasını ve rastgele yerleştirilmiş mayınları göreceksiniz.
-Sırayla her adımda, bir satır ve bir sütun numarası girmeniz istenecektir.
-Girilen konum mayınsızsa, o alandaki etkileşimli alanlar açılacak ve etrafındaki mayın sayısı ekrana yazdırılacaktır.
-Eğer girilen konumda bir mayın varsa, oyun biter.
-Tüm mayınsız alanlar açıldığında, oyunu kazanırsınız.
 
-Oyun Tahtası Gösterimi
-- işareti, henüz açılmamış bir alandır.
-  0-8 arası bir sayı, etrafında o kadar mayın bulunan bir alandır.
-* işareti, bir mayını temsil eder.
+Oyunun başlangıcında, oyun tahtası "-" karakterleriyle gösterilir ve mayınlar rastgele yerleştirilir.
+Oyuncu, satır ve sütun koordinatlarını girdiği sürece oyuna devam eder.
+Girilen koordinatlara göre, oyun tahtası güncellenir ve eğer o alanda bir mayın yoksa, etrafındaki mayın sayısı yazdırılır.
+Eğer oyuncu bir mayına rastlarsa, oyun sonlanır ve kaybeder.
+Tüm mayın olmayan alanlar açıldığında, oyuncu kazanır.
 
-Notlar
-Oyun tahtasının boyutu başlangıçta belirlenir.
-Mayınlar rastgele yerleştirilir.
-Oyun, konsol üzerinden oynanır.
+Metod Açıklamaları
+
+MineSweeper(int rows, int cols): Oyun tahtasını belirli bir satır ve sütun sayısıyla oluşturur. Mayınları yerleştirir.
+firstBoard(): Oyun tahtasını "-" karakterleriyle doldurur.
+placeMines(): Mayınları oyun tahtasına rastgele yerleştirir.
+playBoard(): Oyun tahtasını ekrana yazdırır.
+printMineLocations(): Mayınların rastgele yerleştirilmiş hâlini ekrana yazdırır.
+play(): Oyunu başlatır ve oyun durumunu kontrol eder.
+MineControl(int row, int col): Seçilen kareyi açar ve etrafındaki mayın sayısını kontrol eder.
+nearbyMines(int row, int col): Girilen koordinatın çevresini kontrol eder ve temas edilen mayın sayısını hesaplar.
+
+Kullanım Örneği
+
+Aşağıdaki kod bloğu, kullanıcıdan satır ve sütun sayısını alarak Mayın Tarlası oyununu başlatır.
+
+![img.png](img.png)
+
+Bu kod bloğu, kullanıcının oyun için satır ve sütun sayısını belirlemesine olanak tanır ve ardından bu boyutlarda bir Mayın Tarlası oyunu başlatır.
+
+Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için LİSANS dosyasına bakabilirsiniz.
