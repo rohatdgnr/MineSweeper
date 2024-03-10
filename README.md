@@ -41,6 +41,17 @@ Aşağıdaki kod bloğu, kullanıcıdan satır ve sütun sayısını alarak May�
 
 Bu kod bloğu, kullanıcının oyun için satır ve sütun sayısını belirlemesine olanak tanır ve ardından bu boyutlarda bir Mayın Tarlası oyunu başlatır.
 
+![img_1.png](img_1.png)
+
+Kullanıcının kazanma senaryasu. 
+
+![img_2.png](img_2.png)
+Bu ise kullanıcının kaybetme senaryosu.
+
+
+
+
+
 Lisans
 
 Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için LİSANS dosyasına bakabilirsiniz.

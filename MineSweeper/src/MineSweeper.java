@@ -8,7 +8,7 @@ public class MineSweeper {
     String[][] mineLocations;
     int rows;
     int cols;
-    int remainingTiles;
+    int map;
 
     //  Oyun Tahtasının Boyutu Hesaplanıyor
     //  Calculating the Size of the Game Board
@@ -16,7 +16,7 @@ public class MineSweeper {
         this.rows = rows;
         this.cols = cols;
         board = new String[rows][cols];
-        remainingTiles = rows * cols;
+        map = rows * cols;
         firstBoard();
         placeMines();
     }
@@ -112,11 +112,11 @@ public class MineSweeper {
             }
 
             MineControl(row, col);
-            openedSafe++; // Mayın olmayan bir alan açıldığında openedSafeTiles değerini artır
+            openedSafe++; // Mayın olmayan bir alan açıldığında openedSafe değerini artır
             playBoard();
         }
 
-        System.out.println("Congratulations! You have cleared all non-mine tiles. You win!");
+        System.out.println("Congratulations! You have cleared all non-mine . You win!");
     }
 
 
@@ -130,11 +130,11 @@ public class MineSweeper {
         int mines = nearbyMines(row, col);
         if (mines == 0) {
             board[row][col] = "0";
-            remainingTiles--;
+            map--;
 
         } else {
             board[row][col] = Integer.toString(mines);
-            remainingTiles--;
+            map--;
         }
     }
 
