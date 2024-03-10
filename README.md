@@ -18,12 +18,19 @@ Tüm mayın olmayan alanlar açıldığında, oyuncu kazanır.
 Metod Açıklamaları
 
 MineSweeper(int rows, int cols): Oyun tahtasını belirli bir satır ve sütun sayısıyla oluşturur. Mayınları yerleştirir.
+
 firstBoard(): Oyun tahtasını "-" karakterleriyle doldurur.
+
 placeMines(): Mayınları oyun tahtasına rastgele yerleştirir.
+
 playBoard(): Oyun tahtasını ekrana yazdırır.
+
 printMineLocations(): Mayınların rastgele yerleştirilmiş hâlini ekrana yazdırır.
+
 play(): Oyunu başlatır ve oyun durumunu kontrol eder.
+
 MineControl(int row, int col): Seçilen kareyi açar ve etrafındaki mayın sayısını kontrol eder.
+
 nearbyMines(int row, int col): Girilen koordinatın çevresini kontrol eder ve temas edilen mayın sayısını hesaplar.
 
 Kullanım Örneği
