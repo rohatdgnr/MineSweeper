@@ -2,16 +2,16 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class MineSweeper {
-    // Değerlendirme Formu #1  = > Değişkenler ve Fonksiyonlar
-    // Evaluation Form #1 = > Variables and Functions"
-    String [][] board;
-    String [][] mineLocations;
+    // Değerlendirme Formu #1: Değişkenler ve Fonksiyonlar
+    // Evaluation Form #1: Variables and Functions"
+    String[][] board;
+    String[][] mineLocations;
     int rows;
     int cols;
     int remainingTiles;
 
-    // Oyun Tahtası ve Mayınlar Bu Metot ile Yerleştiriliyor
-    // Game Board and Mines are Placed with This Method
+    //  Oyun Tahtasının Boyutu Hesaplanıyor
+    //  Calculating the Size of the Game Board
     public MineSweeper(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
@@ -20,18 +20,20 @@ public class MineSweeper {
         firstBoard();
         placeMines();
     }
+
     // Oyun Tahtasına "-" Karakterleri ile Yazdırılıyor
     // Characters "-" Printed on the Game Board
-    public  void firstBoard() {
+    public void firstBoard() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 board[i][j] = "-";
             }
         }
     }
-    // Mayınlar Rastgele Yerleştiriliyor
-    // Mines Are Placed Randomly
-    public  void placeMines() {
+
+    // Değerlendirme #8: Mayınlar Rastgele Yerleştiriliyor
+    // Evaluation Form #8: Mines Are Placed Randomly
+    public void placeMines() {
         Random rand = new Random();
         mineLocations = new String[rows][cols];
         int numMines = rows * cols / 4;
@@ -45,6 +47,7 @@ public class MineSweeper {
             }
         }
     }
+
     // Oyun Tahtasının Çıktısı Ekrana Yazdırılıyor
     // Print the Output of the Game Board to the Screen
     public void playBoard() {
@@ -55,6 +58,7 @@ public class MineSweeper {
             System.out.println();
         }
     }
+
     // Mayınları Rasgele Dağıtılmış Halini Konsola Bastırır
     // Prints Randomly Distributed Mines to the Console
     public void printMineLocations() {
@@ -75,18 +79,21 @@ public class MineSweeper {
 
 
     }
-    //  Değerlendirme Formu # 6 Oyuncunun Oyun Durumunu Konrol Etme Alanı
-    //  "The Evaluation Form #6: Player's Game State Checking Area"
+
+    //  Değerlendirme Formu #6,9,10,11,13,14,15 Oyuncunun Oyun Durumunu Konrol Etme Alanı
+    //  "The Evaluation Form #6,9,10,11,13,14,15 Player's Game State Checking Area"
     public void play() {
         Scanner scanner = new Scanner(System.in);
         printMineLocations(); // Mayınların rastgele yerleştirilmiş hâlini göster
         playBoard(); // Oyun tahtasını başlangıçta göster
 
-        while (remainingTiles > 1) {
+        int totalSafe = rows * cols - (rows * cols / 4); // Toplam mayın olmayan alan sayısı
+        int openedSafe = 0; // Açılmış mayın olmayan alan sayısı
 
+        while (openedSafe < totalSafe) {
             System.out.print("Enter Row and Column (e.g., 1 1 for the first row and column): ");
 
-            int row = scanner.nextInt()  -1;// Kullanıcının girdiği satır değerini indekse dönüştür
+            int row = scanner.nextInt() - 1; // Kullanıcının girdiği satır değerini indekse dönüştür
             int col = scanner.nextInt() - 1; // Kullanıcının girdiği sütun değerini indekse dönüştür
             System.out.println("==============================================");
             if (row < 0 || row >= rows || col < 0 || col >= cols) {
@@ -104,22 +111,18 @@ public class MineSweeper {
                 return;
             }
 
-
             MineControl(row, col);
-            playBoard(); // Oyun tahtasını güncel duruma göre yeniden göster
-            // Kalan kutu sayısını kontrol et
-
-
-
-
+            openedSafe++; // Mayın olmayan bir alan açıldığında openedSafeTiles değerini artır
+            playBoard();
         }
+
+        System.out.println("Congratulations! You have cleared all non-mine tiles. You win!");
     }
 
 
-
-    //Seçilen Kareyi Açar ve Eğer Seçilen Kare Etrafında Mayın Yoksa Ekrana 0 (SIFIR) Yazdırır
-    //It Opens the Selected Square and Prints 0 (ZERO) On the PlayBoard if There Are No Mines Around the Selected Square
-    public  void MineControl(int row, int col) {
+    // Değerlendirme #12 Seçilen Kareyi Açar ve Eğer Seçilen Kare Etrafında Mayın Yoksa Ekrana 0 (SIFIR) Yazdırır
+    // Evaluation Form #12 It Opens the Selected Square and Prints 0 (ZERO) On the PlayBoard if There Are No Mines Around the Selected Square
+    public void MineControl(int row, int col) {
         if (row < 0 || row >= rows || col < 0 || col >= cols || board[row][col] != "-") {
             return;
         }
