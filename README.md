@@ -33,7 +33,7 @@
 
 # Kullanım Örneği
 
-# Aşağıdaki kod bloğu, kullanıcıdan satır ve sütun sayısını alarak Mayın Tarlası oyununu başlatır.
+-  Aşağıdaki kod bloğu, kullanıcıdan satır ve sütun sayısını alarak Mayın Tarlası oyununu başlatır.
 
 ![img.png](img.png)
 
@@ -50,6 +50,6 @@
 
 
 
-Lisans
+# Lisans
 
 Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için LİSANS dosyasına bakabilirsiniz.
